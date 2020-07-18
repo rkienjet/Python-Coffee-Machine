@@ -1,74 +1,105 @@
-#Amount of resources before making x amount of coffee:
+#Amount of resources before making x amount of coffee
 
-#Random start amount for test
 water = 400
 milk = 540
 coffee_beans = 120
 disposable_cups = 9
 money = 550
 
-print("The coffee machine has:")
-print(water, "of water")
-print(milk, "of milk")
-print(coffee_beans, "of coffee beans")
-print(disposable_cups, "of disposable cups")
-print(money, "of money")
+def Resources():
+    print("The coffee machine has:")
+    print(water, "of water")
+    print(milk, "of milk")
+    print(coffee_beans, "of coffee beans")
+    print(disposable_cups, "of disposable cups")
+    print("$", money)
 
-print()
+while True:
+    print("Write action (buy, fill, remaining, take, exit):")
+    action = str(input())
 
-#Action selector
-print("Write action (buy, fill or take):")
-action = str(input())
+    if action == "exit":
+        break
 
-#Buy coffee
-if action == "buy":
-    print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")
-    disposable_cups -= 1
-    buy_option = int(input())
-    if buy_option == 1:
-        water -= 250
-        coffee_beans -= 16
-        money += 4
-    elif buy_option == 2:
-        water -= 350
-        coffee_beans -= 20
-        milk -= 75
-        money += 7
-    elif buy_option == 3:
-        water -= 200
-        coffee_beans -= 12
-        milk -= 100
-        money += 6
+    elif action == "remaining":
+        Resources()
 
-#Fill machine with resources
-elif action == "fill":
-    print("Write how many ml of water you want to add to the machine:")
-    fill_water = int(input())
-    print("Write how many ml of milk you want to add to the machine:")
-    fill_milk = int(input())
-    print("Write how many grams of coffee beans you want to add to the machine:")
-    fill_coffee_beans = int(input())
-    print("Write how many disposable cups of coffee you want to add to the machine:")
-    fill_disposable_cups = int(input())
-    water += fill_water
-    milk += fill_milk
-    coffee_beans += fill_coffee_beans
-    disposable_cups += fill_disposable_cups
+    elif action == "buy":
+        print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino. Type 'back' to go back to the main screen:")
+        buy_option = input().strip()
+        if buy_option == "back":
+            continue
+        if buy_option == "1":
+            if water < 250 or coffee_beans < 16 or disposable_cups < 1:
+                if water < 250:
+                    print("Sorry, not enough water!")
+                elif coffee_beans < 16:
+                    print("Sorry, not enough coffee beans!")
+                elif disposable_cups < 1:
+                    print("Sorry, not enough disposable cups!")
+            else:
+                disposable_cups -= 1
+                print("I have enough resources, making you a coffee!")
+                water -= 250
+                coffee_beans -= 16
+                money += 4
+            continue
+        elif buy_option == "2":
+            if  water < 350 or milk < 75 or disposable_cups < 1:
+                if water < 350:
+                    print("Sorry, not enough water!")
+                elif milk < 75:
+                    print("Sorry, not enough milk!")
+                elif disposable_cups < 1:
+                    print("Sorry, not enough disposable cups!")
+            else:
+                disposable_cups -= 1
+                print("I have enough resources, making you a coffee!")
+                water -= 350
+                coffee_beans -= 20
+                milk -= 75
+                money += 7
+            continue
+        elif buy_option == "3":
+            if water < 200 or milk < 100 or coffee_beans < 12 or disposable_cups < 1:
+                if water < 200:
+                    print("Sorry, not enough water!")
+                elif milk < 100:
+                    print("Sorry, not enough milk!")
+                elif coffee_beans < 12:
+                    print("Sorry, not enough coffee beans!")
+                elif disposable_cups < 1:
+                    print("Sorry, not enough disposable cups!")
+            else:
+                disposable_cups -= 1
+                print("I have enough resources, making you a coffee!")
+                water -= 200
+                coffee_beans -= 12
+                milk -= 100
+                money += 6
+            continue
 
-#Take money
-elif action == "take":
-    print("I gave you $", money)
-    money -= money
+    elif action == "fill":
+        print("Write how many ml of water you want to add to the machine:")
+        fill_water = int(input())
+        print("Write how many ml of milk you want to add to the machine:")
+        fill_milk = int(input())
+        print("Write how many grams of coffee beans you want to add to the machine:")
+        fill_coffee_beans = int(input())
+        print("Write how many disposable cups of coffee you want to add to the machine:")
+        fill_disposable_cups = int(input())
+        water += fill_water
+        milk += fill_milk
+        coffee_beans += fill_coffee_beans
+        disposable_cups += fill_disposable_cups
+        print("New amount of resources:")
+        Resources()
+        continue
 
-print()
-
-#Amount of resources afterwards:
-print("The coffee machine has:")
-print(water, "of water")
-print(milk, "of milk")
-print(coffee_beans, "of coffee beans")
-print(disposable_cups, "of disposable cups")
-print(money, "of money")
+    elif action == "take":
+        print("I gave you $", money)
+        money -= money
+        continue
 
 
 
