@@ -17,16 +17,18 @@ def Resources():
 while True:
     print("Write action (buy, fill, remaining, take, exit):")
     action = str(input())
-
+    print()
     if action == "exit":
+        print("Goodbye!")
         break
-
+    
     elif action == "remaining":
         Resources()
-
+  
     elif action == "buy":
         print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino. Type 'back' to go back to the main screen:")
         buy_option = input().strip()
+        print()
         if buy_option == "back":
             continue
         if buy_option == "1":
@@ -92,6 +94,7 @@ while True:
         milk += fill_milk
         coffee_beans += fill_coffee_beans
         disposable_cups += fill_disposable_cups
+        print()
         print("New amount of resources:")
         Resources()
         continue
