@@ -8,10 +8,10 @@ money = 550
 
 def Resources():
     print("The coffee machine has:")
-    print(water, "of water")
-    print(milk, "of milk")
-    print(coffee_beans, "of coffee beans")
-    print(disposable_cups, "of disposable cups")
+    print(water, "ml of water")
+    print(milk, "ml of milk")
+    print(coffee_beans, "grams of coffee beans")
+    print(disposable_cups, "disposable cups")
     print("$", money)
 
 while True:
