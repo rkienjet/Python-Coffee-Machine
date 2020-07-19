@@ -128,6 +128,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Files that where not included in the project itself
-.unused1.py
-.unused2.py
