@@ -24,6 +24,7 @@ while True:
     
     elif action == "remaining":
         Resources()
+        print()
   
     elif action == "buy":
         print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino. Type 'back' to go back to the main screen:")
@@ -45,6 +46,7 @@ while True:
                 water -= 250
                 coffee_beans -= 16
                 money += 4
+            print()
             continue
         elif buy_option == "2":
             if  water < 350 or milk < 75 or disposable_cups < 1:
@@ -61,6 +63,7 @@ while True:
                 coffee_beans -= 20
                 milk -= 75
                 money += 7
+            print()
             continue
         elif buy_option == "3":
             if water < 200 or milk < 100 or coffee_beans < 12 or disposable_cups < 1:
@@ -79,6 +82,7 @@ while True:
                 coffee_beans -= 12
                 milk -= 100
                 money += 6
+            print()    
             continue
 
     elif action == "fill":
@@ -97,11 +101,13 @@ while True:
         print()
         print("New amount of resources:")
         Resources()
+        print()
         continue
 
     elif action == "take":
         print("I gave you $", money)
         money -= money
+        print()
         continue
 
 
